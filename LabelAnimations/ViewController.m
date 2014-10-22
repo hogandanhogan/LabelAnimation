@@ -76,7 +76,6 @@
         [self.labels addObject:label];
     }
 
-
     for (UILabel *label in self.labels) {
         label.contentMode = UIViewContentModeScaleToFill;
         CGFloat labelWidth = label.frame.size.width;
@@ -111,15 +110,11 @@
     for (int i = 0; i < self.labels.count; i++) {
         UILabel *label = [self.labels objectAtIndex:i];
         label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y - 10.25, self.view.frame.size.width - 8 - 16 - 8, label.frame.size.height);
-        //NSLog(@"%f,%f", label.frame.origin.x, label.frame.origin.y);
         [UIView animateWithDuration:0.3
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             //NSDictionary *dict = [self.labelWidths objectAtIndex:[self.labels indexOfObject:label]];
-                             //NSNumber *labelWidth = (NSNumber *)[dict objectForKey:@"indexOfObject"];
                              label.layer.transform = CATransform3DIdentity;
-                             //label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, [labelWidth floatValue], label.frame.size.height);
                          }
                          completion:^(BOOL finished) {
                              [UIView animateWithDuration:0.25
@@ -128,8 +123,7 @@
                                               animations:^{
                                                   [label sizeToFit];
                                               }
-                                              completion:^(BOOL finished) {
-                                              }];
+                                              completion:nil];
                          }];
     }
 }
